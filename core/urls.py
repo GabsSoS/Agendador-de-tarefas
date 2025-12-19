@@ -17,10 +17,23 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from Task.views import TaskCreateListAPIView, TaskRetriveUpdateDestroyAPIView
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+    TokenVerifyView
+
+)
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     
+    path('login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('api/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
+    
     path('list-task/', TaskCreateListAPIView.as_view(), name='list-task'),
     path('detail-task/<int:pk>', TaskRetriveUpdateDestroyAPIView.as_view(), name='detail-task'),
+
+    
 ]
