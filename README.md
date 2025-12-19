@@ -1,2 +1,2 @@
 # Agendador-de-tarefas
-um agendador de tarefas simples
+Agendador de tarefas feito com intuito de testar a authenticação e aprendizado da implementação de authenticação JWT juntamento ao DRF
